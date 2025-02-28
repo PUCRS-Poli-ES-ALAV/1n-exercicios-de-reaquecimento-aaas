@@ -6,7 +6,17 @@ int multSoma(int a, int b, int res){
     return multSoma(a, b -1, res);
 }
 
+int somas(int a, int b){
+    if(a == 0 && b == 0) return;
+    else if (a == 0 && b != 0) return 1 + somas(a, b-1);
+    else if (a!=0 && b == 0) return 1 + somas(a-1, b);
+    else return 1 + 1 + somas(a-1,b-1);
+}
+
 int main(){
     int res = multSoma(3,4, 0);
-    printf("%d\n", res);
+    printf("mult = %d\n", res);
+    res = somas(1,4);
+    printf("somas = %d\n", res);
+
 }
